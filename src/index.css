@@ -75,31 +75,7 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background: radial-gradient(
-      circle at 50% 0%, 
-      hsl(260, 60%, 15%) 0%, 
-      hsl(260, 70%, 8%) 50%, 
-      hsl(260, 80%, 3%) 100%
-    );
-    position: relative;
-    overflow-x: hidden;
-  }
-
-  body::after {
-    content: "";
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 150px;
-    background: radial-gradient(
-      ellipse at 50% 0%, 
-      rgba(255, 255, 255, 0.1) 0%, 
-      transparent 80%
-    );
-    z-index: 1;
-    pointer-events: none;
-    mask-image: linear-gradient(to top, transparent, black);
+    background: radial-gradient(ellipse at top, hsl(260, 50%, 10%), hsl(260, 50%, 3%));
   }
 
   html {
@@ -107,29 +83,12 @@
   }
 
   .glass-nav {
-    @apply bg-secondary/10 backdrop-blur-md border border-white/10;
+    @apply bg-secondary/20 backdrop-blur-md border border-border/40;
   }
   
   .italic-text {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-  }
-
-  .hero-section {
-    position: relative;
-  }
-  
-  .hero-section::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 150px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150"><path fill="rgba(255,255,255,0.05)" d="M0,128L1440,32L1440,0L0,0Z" /></svg>');
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
   }
 }
 
@@ -148,13 +107,4 @@
       transform: translateY(0);
     }
   }
-  
-  .glow-effect {
-    box-shadow: 0 0 20px rgba(158, 115, 255, 0.3);
-  }
-  
-  .glow-text {
-    text-shadow: 0 0 10px rgba(158, 115, 255, 0.5);
-  }
 }
-
