@@ -1,13 +1,13 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Mail } from 'lucide-react';
+import { ArrowRight, Mail, Users, Globe, Code, MonitorSmartphone } from 'lucide-react';
 
 const Hero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden"
+      className="min-h-screen flex flex-col pt-16 relative overflow-hidden"
     >
       <div className="absolute inset-0 -z-10">
         <div className="h-full w-full bg-gradient-to-b from-background to-background/70"></div>
@@ -49,6 +49,53 @@ const Hero = () => {
           <div className="flex items-center gap-2 ml-2 text-muted-foreground">
             <Mail className="h-5 w-5" />
             <span>hello@yourname.com</span>
+          </div>
+        </div>
+      </div>
+      
+      {/* Feature Cards Section */}
+      <div className="container mx-auto px-4 pb-32 mt-8 lg:mt-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Feature Card 1 */}
+          <div className="glass-nav p-8 rounded-2xl backdrop-blur-md flex flex-col space-y-4 hover:bg-secondary/40 transition-colors">
+            <div className="h-12 w-12 bg-primary/20 rounded-full flex items-center justify-center">
+              <Users className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="text-xl font-semibold">Collaboration</h3>
+            <p className="text-muted-foreground">I prioritize client collaboration, fostering open communication</p>
+          </div>
+          
+          {/* Feature Card 2 */}
+          <div className="glass-nav p-8 rounded-2xl backdrop-blur-md flex flex-col space-y-4 hover:bg-secondary/40 transition-colors">
+            <div className="h-12 w-12 bg-primary/20 rounded-full flex items-center justify-center">
+              <Code className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="text-xl font-semibold">Tech Enthusiast</h3>
+            <p className="text-muted-foreground">Passionate about cutting-edge development technologies</p>
+          </div>
+          
+          {/* Feature Card 3 */}
+          <div className="glass-nav p-8 rounded-2xl backdrop-blur-md flex flex-col space-y-4 hover:bg-secondary/40 transition-colors">
+            <div className="h-12 w-12 bg-primary/20 rounded-full flex items-center justify-center">
+              <Globe className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="text-xl font-semibold">Remote</h3>
+            <p className="text-muted-foreground">I'm very flexible with time zone communications</p>
+          </div>
+          
+          {/* Feature Card 4 */}
+          <div className="glass-nav p-8 rounded-2xl backdrop-blur-md flex flex-col space-y-4 hover:bg-secondary/40 transition-colors lg:col-span-2">
+            <div className="h-12 w-12 bg-primary/20 rounded-full flex items-center justify-center">
+              <MonitorSmartphone className="h-6 w-6 text-primary" />
+            </div>
+            <h3 className="text-xl font-semibold">Let's work together on your next project</h3>
+            <p className="text-muted-foreground">Currently building SaaS applications and responsive web experiences</p>
+            <div className="pt-2">
+              <Button variant="secondary" className="rounded-md flex items-center gap-2">
+                <Mail className="h-4 w-4" />
+                hello@yourname.com
+              </Button>
+            </div>
           </div>
         </div>
       </div>
