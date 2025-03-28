@@ -83,7 +83,7 @@
   }
 
   .glass-nav {
-    @apply bg-background/30 backdrop-blur-md border border-border/40;
+    @apply bg-secondary/20 backdrop-blur-md border border-border/40;
   }
   
   .italic-text {
@@ -108,4 +108,3 @@
     }
   }
 }
-
