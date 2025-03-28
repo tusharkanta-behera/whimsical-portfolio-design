@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { Button } from './ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -22,21 +24,41 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
+    { name: 'Work', href: '#projects' },
     { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Blog', href: '#blog' },
+    { name: 'More', href: '#more' },
   ];
 
   return (
     <header
       className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-300',
-        scrolled ? 'bg-background/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        'fixed top-0 w-full z-50 transition-all duration-300 py-4',
+        scrolled ? 'py-3' : 'py-5'
       )}
     >
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="#home" className="text-xl font-bold text-primary">Portfolio</a>
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        <a href="#home" className="text-xl font-bold text-white">
+          <span className="text-primary text-2xl">AB</span>
+        </a>
+        
+        {/* Desktop navigation */}
+        <div className="hidden lg:flex glass-nav rounded-full px-4 py-2">
+          <nav className="flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-foreground/80 hover:text-primary transition-colors py-2 px-2"
+              >
+                {link.name}
+              </a>
+            ))}
+            <Button className="rounded-full" size="sm">
+              Book a Call
+            </Button>
+          </nav>
+        </div>
         
         {/* Mobile menu button */}
         <button 
@@ -58,37 +80,27 @@ const Navbar = () => {
           </svg>
         </button>
         
-        {/* Desktop navigation */}
-        <nav className="hidden lg:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
-      </div>
-      
-      {/* Mobile navigation */}
-      {menuOpen && (
-        <nav className="lg:hidden bg-background/95 backdrop-blur-md">
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-foreground hover:text-primary transition-colors py-2"
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
+        {/* Mobile navigation */}
+        {menuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 glass-nav">
+            <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-foreground hover:text-primary transition-colors py-2"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ))}
+              <Button className="w-full mt-4" size="sm">
+                Book a Call
+              </Button>
+            </nav>
           </div>
-        </nav>
-      )}
+        )}
+      </div>
     </header>
   );
 };
